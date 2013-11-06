@@ -13,14 +13,14 @@ import edu.sjsu.cmpe.library.domain.Book;
 
 public class BookRepository implements BookRepositoryInterface {
     /** In-memory map to store books. (Key, Value) -> (ISBN, Book) */
-    private final ConcurrentHashMap<Long, Book> bookInMemoryMap;
+    public final ConcurrentHashMap<Long, Book> bookInMemoryMap= seedData(); // = new ConcurrentHashMap<Long, Book>();
 
     /** Never access this key directly; instead use generateISBNKey() */
-    private long isbnKey;
+    private long isbnKey =2;
 
     public BookRepository() {
-	bookInMemoryMap = seedData();
-	isbnKey = 0;
+	//bookInMemoryMap = seedData();
+	//isbnKey = 2;
     }
 
     private ConcurrentHashMap<Long, Book> seedData(){
@@ -73,7 +73,7 @@ public class BookRepository implements BookRepositoryInterface {
 	// TODO: create and associate other fields such as author
 
 	// Finally, save the new book into the map
-	bookInMemoryMap.putIfAbsent(isbn, newBook);
+	bookInMemoryMap.put(isbn, newBook);
 
 	return newBook;
     }
@@ -104,6 +104,12 @@ public class BookRepository implements BookRepositoryInterface {
     @Override
     public void delete(Long isbn) {
 	bookInMemoryMap.remove(isbn);
+    }
+    
+    @Override
+    public void UpdateBook(Book newBook , Long isbn)
+    {
+    bookInMemoryMap.put(isbn, newBook);
     }
 
 }

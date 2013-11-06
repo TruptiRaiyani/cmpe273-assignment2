@@ -10,13 +10,41 @@ import com.yammer.dropwizard.client.JerseyClientConfiguration;
 import com.yammer.dropwizard.config.Configuration;
 
 public class ProcurementServiceConfiguration extends Configuration {
-    @NotEmpty
-    @JsonProperty
-    private String stompQueueName;
+	 @NotEmpty
+	    @JsonProperty
+	    private String stompQueueName;
 
-    @NotEmpty
-    @JsonProperty
-    private String stompTopicPrefix;
+	    @NotEmpty
+	    @JsonProperty
+	    private String stompCompTopicName;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String stompSelfCompTopicName;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String stompComicCompTopicName;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String stompMgmtCompTopicName;
+
+	    @NotEmpty
+	    @JsonProperty
+	    private String apolloUser;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String apolloPassword;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String apolloHost;
+	    
+	    @NotEmpty
+	    @JsonProperty
+	    private String apolloPort;
 
     @Valid
     @NotNull
@@ -46,12 +74,60 @@ public class ProcurementServiceConfiguration extends Configuration {
 	this.stompQueueName = stompQueueName;
     }
 
-    public String getStompTopicPrefix() {
-	return stompTopicPrefix;
-    }
+    public String getstompCompTopicName() {
+    	return stompCompTopicName;
+        }
 
-    public void setStompTopicPrefix(String stompTopicPrefix) {
-	this.stompTopicPrefix = stompTopicPrefix;
-    }
+        
+        public void setstompCompTopicName(String stompCompTopicName) {
+    	this.stompCompTopicName = stompCompTopicName;
+        }
+        public String getstompSelfCompTopicName() {
+        	return stompSelfCompTopicName;
+            }
 
+            
+            public void setstompSelfCompTopicName(String stompSelfCompTopicName) {
+        	this.stompSelfCompTopicName = stompSelfCompTopicName;
+            }
+            public String getstompComicCompTopicName() {
+            	return stompComicCompTopicName;
+                }
+
+                
+                public void setstompComicCompTopicName(String stompComicCompTopicName) {
+            	this.stompComicCompTopicName = stompComicCompTopicName;
+                }
+                public String getstompMgmtCompTopicName() {
+                	return stompMgmtCompTopicName;
+                    }
+
+                    
+                    public void setstompMgmtCompTopicName(String stompMgmtCompTopicName) {
+                	this.stompMgmtCompTopicName = stompMgmtCompTopicName;
+                    }
+        public String getApolloUser() {
+        	return apolloUser;
+            }
+        public void setApolloUser(String apolloUser) {
+        	this.apolloUser = apolloUser;
+            }
+        public String getApolloPassword() {
+        	return apolloPassword;
+            }
+        public void setApolloPassword(String apolloPassword) {
+        	this.apolloPassword = apolloPassword;
+            }
+        public String getApolloHost() {
+        	return apolloHost;
+            }
+        public void setApolloHost(String apolloHost) {
+        	this.apolloHost = apolloHost;
+            }
+        public String getApolloPort() {
+        	return apolloPort;
+            }
+        public void setApolloPort(String apolloPort) {
+        	this.apolloPort = apolloPort;
+            }
 }

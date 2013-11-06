@@ -1,9 +1,27 @@
 package edu.sjsu.cmpe.procurement;
 
+import java.util.ArrayList;
+
+import javax.jms.Connection;
+import javax.jms.DeliveryMode;
+import javax.jms.Destination;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+import javax.ws.rs.core.MediaType;
+
+import org.fusesource.stomp.jms.StompJmsConnectionFactory;
+import org.fusesource.stomp.jms.StompJmsDestination;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.client.JerseyClientBuilder;
 import com.yammer.dropwizard.config.Bootstrap;
@@ -53,10 +71,12 @@ public class ProcurementService extends Service<ProcurementServiceConfiguration>
 	 */
 	environment.addResource(RootResource.class);
 
-	String queueName = configuration.getStompQueueName();
-	String topicName = configuration.getStompTopicPrefix();
-	log.debug("Queue name is {}. Topic is {}", queueName, topicName);
+	
 	// TODO: Apollo STOMP Broker URL and login
+	
+	
+
+    
 
     }
 }
